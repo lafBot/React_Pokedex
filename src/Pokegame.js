@@ -23,18 +23,33 @@ function Pokegame() {
 
     for (let j=0; j<dealerDeck.length; j++) {
         (j % 2 == 0) ? playerOneDeck.push(dealerDeck[j]) : playerTwoDeck.push(dealerDeck[j]);
-
-        // if (j % 2 == 0) {
-        //     playerOneDeck.push(dealerDeck[j])
-        // } else {
-        //     playerTwoDeck.push(dealerDeck[j])
-        // }
     }
 
+    const playerOneXP = playerOneDeck.reduce((acc, cur) => {
+        return acc + cur["base_experience"]
+    }, 0)
+    const playerTwoXP = playerTwoDeck.reduce((acc, cur) => {
+        return acc + cur["base_experience"]
+    }, 0)
+
+    const pOneStatus = (playerOneXP > playerTwoXP) ? true : false
+    const pTwoStatus = (playerTwoXP > playerOneXP) ? true : false
+
     return (
-        <div>
-            <Pokedex player="Player One" pokemon={playerOneDeck}/>
-            <Pokedex player="Player Two" pokemon={playerTwoDeck}/>
+        <div id="container">
+            <Pokedex 
+                player="Player One" 
+                pokemon={playerOneDeck} 
+                xp={playerOneXP} 
+                winner={pOneStatus}
+            />
+
+            <Pokedex 
+                player="Player Two" 
+                pokemon={playerTwoDeck} 
+                xp={playerTwoXP} 
+                winner={pTwoStatus}
+            />
         </div>
     )
 }

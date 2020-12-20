@@ -5,10 +5,14 @@ import Pokecard from './Pokecard';
 import './Pokedex.css';
 
 function Pokedex(props) {
+    const gameResults = props.winner 
+        ? <b className="Pokedex-winner">{props.xp} Winner!</b>
+        : <b className="Pokedex-loser">{props.xp} Loser</b>
     return (
         <div className="Pokedex-container">
             <div className="Pokedex-cards">
-            <h1 className="Pokedex-title">{props.player}'s Pokedex</h1>
+            <h1 className="Pokedex-title">{props.player}'s Deck</h1>
+            <h2 className="Pokedex-subtitle">XP: <i>{gameResults}</i></h2>
                 {props.pokemon.map(p => {
                     return <Pokecard 
                         id={p.id}
