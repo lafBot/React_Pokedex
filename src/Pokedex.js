@@ -7,8 +7,8 @@ import './Pokedex.css';
 function Pokedex(props) {
     return (
         <div className="Pokedex-container">
-            <h1 className="Pokedex-title">Pokedex</h1>
             <div className="Pokedex-cards">
+            <h1 className="Pokedex-title">{props.player}'s Pokedex</h1>
                 {props.pokemon.map(p => {
                     return <Pokecard 
                         id={p.id}
@@ -16,7 +16,7 @@ function Pokedex(props) {
                         type={p.type}
                         exp={p.base_experience}
                     />
-                })};
+                })}
             </div>
         </div>
     )
