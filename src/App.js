@@ -1,7 +1,11 @@
-import './App.css';
+import React from 'react';
+import Pokedex from './Pokedex';
+import pokemon from './pokemon';
 
-const App = () => {
-  <Pokedex />
-}
+function App() {
+  return (
+    <Pokedex pokemon={pokemon}/>
+  )
+};
 
 export default App;

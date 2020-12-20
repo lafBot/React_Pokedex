@@ -1,0 +1,10 @@
+.Pokedex-title {
+    text-align: center;
+    font-size: 4em;
+}
+
+.Pokedex-cards {
+    padding-left: 10em;
+    padding-right: 10em;
+    max-width: 1100px;
+}
